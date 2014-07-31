@@ -17,7 +17,7 @@ class Symfony extends Rocketeer\Traits\Task
   public function execute()
   {
     $this->command->info('Running cache clear & assetic dump"');
-    $this->runForCurrentRelease('app/console assets:install web;app/console assetic:dump');
+    $this->runForCurrentRelease('app/console assets:install web --env=prod;app/console assetic:dump --env=prod');
   }
 }
 ?>

@@ -7,7 +7,7 @@ class Grunt extends Rocketeer\Traits\Task
    *
    * @var string
    */
-  protected $description = 'Runs "Bower install';
+  protected $description = 'Runs "Grunt build';
 
   /**
    * Executes the Task
@@ -16,8 +16,8 @@ class Grunt extends Rocketeer\Traits\Task
    */
   public function execute()
   {
-    $this->command->info('Running "Bower install"');
-    $this->runForCurrentRelease('bower install');
+    $this->command->info('Running "Grunt build"');
+    $this->runForCurrentRelease('grunt build');
   }
 }
 ?>
