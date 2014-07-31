@@ -62,9 +62,7 @@
 		// permissions on the folder above. The Closure can return
 		// a single command as a string or an array of commands
 		'callback' => function ($task, $file) {
-   			 return array(
-     	   sprintf('setfacl -R -m user:{application_name}:rwx,default:group:{application_name}:rwx "%s"', $file)
-    	);
+   			 return array();
 		}
 
 	),

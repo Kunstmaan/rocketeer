@@ -28,7 +28,7 @@
 	'connections' => array(
 		'production' => array(
 			'host'      => '{host}',
-			'username'  => '{username}',
+			'username'  => '{application_name}',
 			'password'  => '{password}',
 			'key'       => '{key}',
 			'keyphrase' => '{keyphrase}',
