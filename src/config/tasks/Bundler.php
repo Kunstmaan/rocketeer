@@ -17,7 +17,7 @@ class Bundler extends Rocketeer\Traits\Task
   public function execute()
   {
     $this->command->info('Running bundle install"');
-    $this->runForCurrentRelease('bundle install');
+    $this->runForCurrentRelease('bundle install --deployment');
   }
 }
 ?>
