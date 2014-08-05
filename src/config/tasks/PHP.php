@@ -17,7 +17,7 @@ class PHP extends Rocketeer\Traits\Task
   public function execute()
   {
     $this->command->info('Restarting php pool gracefully');
-    $this->runForCurrentRelease('pkill -QUIT -f "^php-fpm: pool {application_name} "');
+    $this->runForCurrentRelease('pkill -QUIT -f "^php-fpm: pool $USER"');
   }
 }
 ?>
