@@ -7,7 +7,7 @@ class Symfony extends Rocketeer\Traits\Task
    *
    * @var string
    */
-  protected $description = 'Runs assets install & assetic dump';
+  protected $description = 'Runs migrations, assets install & assetic dump';
 
   /**
    * Executes the Task
@@ -16,8 +16,8 @@ class Symfony extends Rocketeer\Traits\Task
    */
   public function execute()
   {
-    $this->command->info('Running cache clear & assetic dump"');
-    $this->runForCurrentRelease('app/console assets:install web --env=prod;app/console assetic:dump --env=prod');
+    $this->command->info('Running migrations, cache clear & assetic dump"');
+    $this->runForCurrentRelease('app/console doctrine:migrations:migrate --no-interaction;app/console assets:install web --env=prod;app/console assetic:dump --env=prod');
   }
 }
 ?>
