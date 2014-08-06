@@ -42,8 +42,7 @@
 	// user uploaded data, file-based databases, etc.
 	'shared' => array(
 		'web/uploads',
-		'app/logs',
-		'app/cache'
+		'app/logs'
 	),
 
 	// Permissions
