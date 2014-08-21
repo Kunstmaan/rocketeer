@@ -14,7 +14,7 @@
 	'php'      => '',
 
 	// Path to Composer
-	'composer' => '',
+	'composer' => 'SYMFONY_ENV=prod composer',
 
 	// Path to the Artisan CLI
 	'artisan'  => '',
