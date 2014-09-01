@@ -18,7 +18,7 @@ class Symfony extends Rocketeer\Traits\Task
   {
     $this->command->info('Generating random asset token for config.yml"');
     $rand = substr(md5(microtime()),rand(0,26),8);
-    $this->runForCurrentRelease("sed -i 's/v1/$rand/g' app/config/config.yml");
+    $this->runForCurrentRelease("sed -i 's/v1/$rand/' app/config/config.yml");
 
     $this->command->info('Running migrations');
     $this->runForCurrentRelease('app/console doctrine:migrations:migrate --no-interaction --env=prod');
