@@ -11,81 +11,10 @@
 
 ## Installation
 
-The easiest way is to get the latest compiled version [from the website](http://rocketeer.autopergamene.eu/versions/rocketeer.phar), put it at the root of the project you want to deploy, and hit `php rocketeer.phar ignite`. You'll get asked a series of questions that should get you up and running in no time.
+git clone this repository to /opt and run `composer install`. Symlink bin/rocketeer.phar to /usr/local/bin so it get's available system wide.
 
-Rocketeer also integrates nicely with the Laravel framework, for that refer to the [Getting Started](https://github.com/Anahkiasen/rocketeer/wiki/Getting-started) pages of the documentation.
+Setup passwordless ssh as the project user on the production server. (`ssh-keygen, cp .ssh/deploy.pub .ssh/authorized_keys`) and add the keypair to the git repository of the project.  Make sure passwordless ssh works before continuing.
 
-## Usage
+Execute rocketeer ignite in the root of your project and fill in all the details. For the server address use: server.com:$ssh-port. Make sure the user & projectname are the same as your project (without special char like -). 
 
-The available commands in Rocketeer are :
-
-```
-$ php rocketeer
-  check      Check if the server is ready to receive the application
-  cleanup    Clean up old releases from the server
-  current    Display what the current release is
-  deploy     Deploy the website.
-  flush      Flushes Rocketeer's cache of credentials
-  help       Displays help for a command
-  ignite     Creates Rocketeer's configuration
-  list       Lists commands
-  rollback   Rollback to the previous release, or to a specific one
-  setup      Set up the remote server for deployment
-  teardown   Remove the remote applications and existing caches
-  test       Run the tests on the server and displays the output
-  update     Update the remote server without doing a new release.
-```
-
-## Testing
-
-``` bash
-$ phpunit
-```
-
-## Contributing
-
-Please see [CONTRIBUTING](https://github.com/anahkiasen/rocketeer/blob/master/CONTRIBUTING.md) for details.
-
-## Credits
-
-- [Anahkiasen](https://github.com/Anahkiasen)
-- [All Contributors](https://github.com/anahkiasen/rocketeer/contributors)
-
-## License
-
-The MIT License (MIT). Please see [License File](https://github.com/anahkiasen/rocketeer/blob/master/LICENSE) for more information.
-
------
-
-## Available plugins
-
-- [Campfire](https://github.com/Anahkiasen/rocketeer-campfire)
-- [Slack](https://github.com/Anahkiasen/rocketeer-slack)
-
-## Why not Capistrano ?
-
-That's a question that's been asked to me, why not simply use Capistrano ? I've used Capistrano in the past, it does everything you want it to do, that's a given.
-
-But, it remains a Ruby package and one that's tightly coupled to Rails in some ways; Rocketeer makes it so that you don't have Ruby files hanging around your app. That way you configure it once and can use it wherever you want in the realm of your application, even outside of the deploy routine.
-It's also meant to be a lot easier to comprehend, for first-time users or novices, Capistrano is a lot to take at once – Rocketeer aims to be as simple as possible by providing smart defaults and speeding up the time between installing it and first hitting `deploy`.
-
-It's also more thought out for the PHP world – although you can configure Capistrano to run Composer and PHPUnit, that's not something it expects from the get go, while those tasks that are a part of every PHP developer are integrated in Rocketeer's core deploy process.
-
-## Table of contents
-
-### Getting started
-
-- **[What's Rocketeer](https://github.com/Anahkiasen/rocketeer/wiki/Whats-Rocketeer)**
-- **[Getting Started](https://github.com/Anahkiasen/rocketeer/wiki/Getting-started)**
-
-### Core concepts
-
-- **[Tasks](https://github.com/Anahkiasen/rocketeer/wiki/Tasks)**
-- **[Events](https://github.com/Anahkiasen/rocketeer/wiki/Events)**
-- **[Connections and stages](https://github.com/Anahkiasen/rocketeer/wiki/Connections-Stages)**
-- **[Plugins](https://github.com/Anahkiasen/rocketeer/wiki/Plugins)**
-
-### Going further
-
-- **[Architecture](https://github.com/Anahkiasen/rocketeer/wiki/Architecture)**
-- **[Troubleshooting](https://github.com/Anahkiasen/rocketeer/wiki/Troubleshooting)**
+When done: deploy your project using `rocketeer deploy`. You can change the branch which will be deployed in `.rocketeer/scm.php`
