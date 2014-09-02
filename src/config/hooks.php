@@ -15,7 +15,7 @@
 	// Tasks to execute before the core Rocketeer Tasks
 	'before' => array(
 		'setup'   => array(),
-		'deploy'  => array('Ssh', 'Github'),
+		'deploy'  => array('Github'),
 		'cleanup' => array(),
 	),
 
