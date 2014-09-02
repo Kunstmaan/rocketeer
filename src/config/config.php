@@ -34,6 +34,14 @@
 			'keyphrase' => '{keyphrase}',
 			'agent'     => '{agent}',
 		),
+		'staging' => array(
+			'host'      => '{host}',
+			'username'  => '{application_name}',
+			'password'  => '{password}',
+			'key'       => '{key}',
+			'keyphrase' => '{keyphrase}',
+			'agent'     => '{agent}',
+		),
 	),
 
 	// Contextual options
